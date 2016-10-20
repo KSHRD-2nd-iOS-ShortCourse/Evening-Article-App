@@ -25,9 +25,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = articleTableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath)
+        let cell = articleTableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! ArticleTableViewCell
         
-        cell.textLabel?.text = data[indexPath.row].title
+        cell.titleLabel?.text = data[indexPath.row].title
+        cell.thumbnailImageView?.image = data[indexPath.row].photos[0]
+        cell.dateTimeLabel.text = "\(data[indexPath.row].dateTime)"
+        
         
         return cell
         
